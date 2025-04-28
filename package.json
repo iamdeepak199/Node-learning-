@@ -1,0 +1,16 @@
+{
+  "name": "node.js-learning",
+  "version": "1.0.0",
+  "description": "Node learning ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "Start": "index.js"
+  },
+  "author": "Deepak Bhardwaj",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "nodemon": "^3.1.10"
+  }
+}
