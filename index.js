@@ -76,7 +76,7 @@ fs.readFile('File_data.txt','utf-8',(err,data)=>{
 })
 console.log("Hi My name is Deepak : ");
 
-<-----------------Synchronous And Asynchronous------------------>*/
+<-----------------Operating System OS Module---------------------->
 
 const os = require('os');
 console.log(os.arch());
@@ -99,4 +99,16 @@ console.log(os.userInfo());
 console.log(os.uptime());
 console.log(os.release());
 
+<-----------------Operating System OS Module---------------------->*/
 
+const path = require('path');
+console.log(path.parse("C:\Users\pc\OneDrive\Desktop\Node.js Learning\modules\mathfun.js"));
+
+console.log(path.basename("C:\Users\pc\OneDrive\Desktop\Node.js Learning\modules\mathfun.js"));
+
+console.log(path.extname("C:\Users\pc\OneDrive\Desktop\Node.js Learning\modules\mathfun.js"));
+
+console.log(path.dirname("C:\Users\pc\OneDrive\Desktop\Node.js Learning\modules\mathfun.js"));
+
+const mypath = path.parse("C:\Users\pc\OneDrive\Desktop\Node.js Learning\modules\mathfun.js");
+console.log(mypath.name);
