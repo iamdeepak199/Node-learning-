@@ -99,7 +99,7 @@ console.log(os.userInfo());
 console.log(os.uptime());
 console.log(os.release());
 
-<-----------------Operating System OS Module---------------------->*/
+<--------------------------Path module------------------------------->*/
 
 const path = require('path');
 console.log(path.parse("C:\Users\pc\OneDrive\Desktop\Node.js Learning\modules\mathfun.js"));
