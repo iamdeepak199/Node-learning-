@@ -31,8 +31,8 @@ server.listen(8000,()=>{
 
     console.log("server is running ");
 })
-<-----------------Synchronous And Asynchronous------------------>
-<---------------------File System CURD Operation---------------->*/
+
+<---------------------File System CURD Operation---------------->
 
 const fs = require('fs');
 fs.writeFile('data.txt',"Hello this is a File System : in this module we are learn CURD Operations :",(err)=>{
@@ -62,11 +62,18 @@ fs.unlink('data.txt',(err)=>{
 fs.rmdir('File_System',(err)=>{
     console.log("Directory Delete : ");
 })
+    
+<-----------------Synchronous And Asynchronous------------------>
+*/
+const fs = require('fs');
+const data = fs.readFileSync('File_data.txt','utf-8');
+console.log(data);
+console.log("Today is Awsoesme day :");
 
-
-
-
-
+fs.readFile('File_data.txt','utf-8',(err,data)=>{
+    console.log(data);
+})
+console.log("Hi My name is Deepak : ");
 
 
 
