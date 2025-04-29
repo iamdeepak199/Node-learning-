@@ -99,7 +99,7 @@ console.log(os.userInfo());
 console.log(os.uptime());
 console.log(os.release());
 
-<--------------------------Path module------------------------------->*/
+<-------------------Path Module---------------------->
 
 const path = require('path');
 console.log(path.parse("C:\Users\pc\OneDrive\Desktop\Node.js Learning\modules\mathfun.js"));
@@ -112,3 +112,25 @@ console.log(path.dirname("C:\Users\pc\OneDrive\Desktop\Node.js Learning\modules\
 
 const mypath = path.parse("C:\Users\pc\OneDrive\Desktop\Node.js Learning\modules\mathfun.js");
 console.log(mypath.name);
+
+<-------------------Chalk Module---------------------->
+
+const chalk = require('chalk');
+console.log(chalk.blue.inverse.italic("This is a chalk module which help to identify error and message easly on console :"));
+
+<---------------------Validator---------------------->*/
+
+const validator = require('validator');
+
+const res = validator.isDate("2023-12-10"); 
+console.log(res);
+
+
+const Email = validator.isEmail("deepak@gmail.com"); 
+console.log(Email);
+
+const equal = validator.equals("deepak@gmail.com", "deepak@gmail.com");
+console.log(equal);
+
+const black = validator.blacklist("deepak@gmail.com","deepak");
+console.log(black);
