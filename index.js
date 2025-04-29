@@ -1,4 +1,5 @@
 /*
+
 <---------------------Create Modules------------------------------>
 
 const {add,sub,multi,divide} = require ('./modules/mathfun');
@@ -64,7 +65,7 @@ fs.rmdir('File_System',(err)=>{
 })
     
 <-----------------Synchronous And Asynchronous------------------>
-*/
+
 const fs = require('fs');
 const data = fs.readFileSync('File_data.txt','utf-8');
 console.log(data);
@@ -75,11 +76,27 @@ fs.readFile('File_data.txt','utf-8',(err,data)=>{
 })
 console.log("Hi My name is Deepak : ");
 
+<-----------------Synchronous And Asynchronous------------------>*/
 
+const os = require('os');
+console.log(os.arch());
 
+const freememory = os.freemem();
+console.log(`${freememory/1024/1024/1024} GB`);
 
+const totalmemoery = os.totalmem();
+console.log(`${totalmemoery/1024/1024/1024} GB`);
 
-
-
+console.log(os.hostname());
+console.log(os.type());
+console.log(os.platform());
+console.log(os.homedir());
+console.log(os.availableParallelism());
+console.log(os.cpus());
+console.log(os.getPriority());
+console.log(os.version());
+console.log(os.userInfo());
+console.log(os.uptime());
+console.log(os.release());
 
 
