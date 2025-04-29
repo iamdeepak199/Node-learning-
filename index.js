@@ -1,7 +1,6 @@
-const {add,sub,multi,divide} = require ('./modules/mathfun');
+/*const {add,sub,multi,divide} = require ('./modules/mathfun');
 const chalk = require('chalk');
-const express = require('express');
-
+/*const express = require('express');
 const app = express();
 
 console.log(chalk.blue.bold.inverse("Sum of two number is : ", add(4,2)));
@@ -14,4 +13,15 @@ app.get("/",(req,res)=>{
 });
 app.listen(8000,()=>{
     console.log("listing Port 8000");
+})*/
+
+
+const http = require('http');
+const server = http.createServer((req,res)=>{
+    res.end("Hello this is server : ");
+});
+
+server.listen(8000,()=>{
+
+    console.log("server is running ");
 })
