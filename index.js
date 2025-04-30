@@ -118,7 +118,7 @@ console.log(mypath.name);
 const chalk = require('chalk');
 console.log(chalk.blue.inverse.italic("This is a chalk module which help to identify error and message easly on console :"));
 
-<---------------------Validator---------------------->*/
+<---------------------Validator---------------------->
 
 const validator = require('validator');
 
@@ -134,3 +134,7 @@ console.log(equal);
 
 const black = validator.blacklist("deepak@gmail.com","deepak");
 console.log(black);
+
+<---------------------Database Connection---------------------->*/
+
+const db = require('./Database/database');
