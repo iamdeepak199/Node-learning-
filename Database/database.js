@@ -15,7 +15,7 @@ db.connect((err) => {
       console.log('Error connecting to the database:', err);
       return;
     }
-    console.log(chalk.blue.italic.inverse('Connected to the MySQL database.'));
+    console.log(chalk.green.italic.inverse('Connected to the MySQL database.'));
   });
 
   module.exports = db ;

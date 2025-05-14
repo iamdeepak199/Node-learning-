@@ -135,9 +135,64 @@ console.log(equal);
 const black = validator.blacklist("deepak@gmail.com","deepak");
 console.log(black);
 
-<---------------------Database Connection---------------------->*/
+<---------------------Database Connection---------------------->
 
 const db = require('./Database/database');
 
 
+<---------------------Simple API---------------------->*/
+const db = require('./Database/database');
+const chalk = require('chalk');
+const path = require('path');
+const express = require('express');
+const PORT = process.env.PORT || 3000;
+const app = express();
 
+// Middleware to parse incoming request bodies
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(express.static('public'));
+
+
+app.post('/add', (req, res) => {
+  let { Unique_Id, Service_No, Rank, Name, Relation, Type_Of_Scholarship, Amount_Paid, Date_Of_Payment, Pv_No } = req.body;
+
+  // Join Type_Of_Scholarship if it's an array
+  if (Array.isArray(Type_Of_Scholarship)) {
+    Type_Of_Scholarship = Type_Of_Scholarship.join(', ');
+  }
+
+  const sql = `INSERT INTO lifts (Unique_Id, Service_No, \`Rank\`, Name, Relation, Type_Of_Scholarship, Amount_Paid, Date_Of_Payment, Pv_No) 
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+
+  db.query(sql, [Unique_Id, Service_No, Rank, Name, Relation, Type_Of_Scholarship, Amount_Paid, Date_Of_Payment, Pv_No], (err, result) => {
+    if (err) {
+      console.error('Error inserting data:', err);
+      return res.status(500).send('Database error');
+    }
+    res.send('Lift added successfully');
+  });
+});
+
+app.get('/lifts', (req, res) => {
+  const sql = `SELECT * FROM lifts`;
+
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Error fetching data:', err);
+      return res.status(500).send('Database error');
+    }
+
+    // Render the lifts data on a view (EJS or any templating engine)
+    res.render('lifts', { lifts: results });  // 'lifts' is the name of the view template
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(chalk.blue.inverse.italic(`Server is Running at PORT : http://localhost:${PORT}`));
+
+})
